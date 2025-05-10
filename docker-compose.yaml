@@ -1,0 +1,18 @@
+version: "3"
+services:
+  auth:
+    build: ./auth-api
+  users:
+    build: ./users-api
+    environment:
+      AUTH_ADDRESS: auth
+      AUTH_SERVICE_AUTH_HOST: auth # when using kubernetes env that was created by the auth-service.yaml
+    ports: 
+      - "8080:8080"
+  tasks:
+    build: ./tasks-api
+    ports: 
+      - "8000:8000"
+    environment:
+      TASKS_FOLDER: tasks
+    
