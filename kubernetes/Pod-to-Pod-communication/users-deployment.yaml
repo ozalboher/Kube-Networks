@@ -17,4 +17,4 @@ spec:
           image: ozalboher/kube-users:latest
           env:
             - name: AUTH_ADDRESS
-              value: localhost
+              value: "auth-service.default"
